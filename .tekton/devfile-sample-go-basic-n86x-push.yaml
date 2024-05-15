@@ -193,8 +193,6 @@ spec:
               #!/usr/bin/env python3
               import json
               import ast
-              json_data = ast.literal_eval(json.dumps({{ body.pull_request.state }}))
-              print(json_data)
               labels=json.loads("""{{ body}}""")
               print(labels)
               json_data1 = ast.literal_eval(json.dumps(labels))
