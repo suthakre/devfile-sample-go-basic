@@ -193,10 +193,8 @@ spec:
               #!/usr/bin/env python3
               import json
               import ast
-              labels=json.loads("""{{ body}}""")
-              print(labels)
-              json_data1 = ast.literal_eval(json.dumps(labels))
-              print(json_data1)
+              labels=json.loads("""{{ body }}""")
+              print(labels.after)
               print('This is not a PR targeting a BUG :(')
               exit(0)
     - name: prefetch-dependencies
