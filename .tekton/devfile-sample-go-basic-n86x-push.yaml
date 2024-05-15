@@ -193,10 +193,12 @@ spec:
               #!/usr/bin/env python3
               import json
               import ast
-              json_data = ast.literal_eval(json.dumps("""{{ body.pull_request.state }}"""))
+              json_data = ast.literal_eval(json.dumps({{ body.pull_request.state }}))
               print(json_data)
-              labels=json.loads("""{{ body.commits.message }}""")
+              labels=json.loads("""{{ body}}""")
               print(labels)
+              json_data1 = ast.literal_eval(json.dumps(labels))
+              print(json_data1)
               print('This is not a PR targeting a BUG :(')
               exit(0)
     - name: prefetch-dependencies
