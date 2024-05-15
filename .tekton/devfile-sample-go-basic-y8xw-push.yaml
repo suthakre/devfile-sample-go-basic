@@ -192,6 +192,8 @@ spec:
             script: |
               #!/usr/bin/env python3
               import json
+              labels=json.loads("""{{ body }}""")
+              print(labels)
               print('This is not a PR targeting a BUG :(')
               exit(0)
     - name: prefetch-dependencies
