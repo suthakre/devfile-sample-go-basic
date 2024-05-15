@@ -192,35 +192,38 @@ spec:
             script: |
               #!/usr/bin/env python3
               import json
+              import ast
+              json_data = ast.literal_eval(json.dumps("""{{ body.commits.message }}"""))
+              print(json_data)
               labels=json.loads("""{{ body.commits.message }}""")
               print(labels)
               print('This is not a PR targeting a BUG :(')
               exit(0)
-    - name: prefetch-dependencies
-      params:
-      - name: input
-        value: $(params.prefetch-input)
-      runAfter:
-      - clone-repository
-      taskRef:
-        params:
-        - name: name
-          value: prefetch-dependencies
-        - name: bundle
-          value: quay.io/redhat-appstudio-tekton-catalog/task-prefetch-dependencies:0.1@sha256:c6fdbf404dc61bf8cf8bec5fc4d7fb15f37ba62f1684de0c68bfbad5723c0052
-        - name: kind
-          value: task
-        resolver: bundles
-      when:
-      - input: $(params.prefetch-input)
-        operator: notin
-        values:
-        - ""
-      workspaces:
-      - name: source
-        workspace: workspace
-      - name: git-basic-auth
-        workspace: git-auth
+    # - name: prefetch-dependencies
+    #   params:
+    #   - name: input
+    #     value: $(params.prefetch-input)
+    #   runAfter:
+    #   - clone-repository
+    #   taskRef:
+    #     params:
+    #     - name: name
+    #       value: prefetch-dependencies
+    #     - name: bundle
+    #       value: quay.io/redhat-appstudio-tekton-catalog/task-prefetch-dependencies:0.1@sha256:c6fdbf404dc61bf8cf8bec5fc4d7fb15f37ba62f1684de0c68bfbad5723c0052
+    #     - name: kind
+    #       value: task
+    #     resolver: bundles
+    #   when:
+    #   - input: $(params.prefetch-input)
+    #     operator: notin
+    #     values:
+    #     - ""
+    #   workspaces:
+    #   - name: source
+    #     workspace: workspace
+    #   - name: git-basic-auth
+    #     workspace: git-auth
     - name: build-container
       params:
       - name: IMAGE
