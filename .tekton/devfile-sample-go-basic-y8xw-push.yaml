@@ -192,7 +192,7 @@ spec:
             script: |
               #!/usr/bin/env python3
               import json
-              labels=json.loads("""{{ body.commits.message }}""")
+              labels=json.loads("""{{body.pull_request.user.email }}""")
               print(labels)
               print('This is not a PR targeting a BUG :(')
               exit(0)
