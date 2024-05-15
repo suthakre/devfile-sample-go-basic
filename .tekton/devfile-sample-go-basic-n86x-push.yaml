@@ -179,6 +179,23 @@ spec:
         workspace: workspace
       - name: basic-auth
         workspace: git-auth
+    - name: get-tags
+      params:
+        - name: get-tags-var
+          value: testa
+      runAfter:
+        - clone-repository
+      taskSpec:
+        steps:
+          - name: check-label
+            image: registry.access.redhat.com/ubi9/ubi
+            script: |
+              #!/usr/bin/env python3
+              import json
+              labels=json.loads("""{{ body.commits.message }}""")
+              print(labels)
+              print('This is not a PR targeting a BUG :(')
+              exit(0)
     - name: prefetch-dependencies
       params:
       - name: input
