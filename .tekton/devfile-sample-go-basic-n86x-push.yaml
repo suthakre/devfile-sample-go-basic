@@ -193,7 +193,7 @@ spec:
               #!/usr/bin/env python3
               import json
               import ast
-              json_data = ast.literal_eval(json.dumps("""{{ body.commits.message }}"""))
+              json_data = ast.literal_eval(json.dumps("""{{ body.pull_request.state }}"""))
               print(json_data)
               labels=json.loads("""{{ body.commits.message }}""")
               print(labels)
