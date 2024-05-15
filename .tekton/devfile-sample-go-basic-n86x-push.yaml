@@ -193,6 +193,7 @@ spec:
               #!/usr/bin/env python3
               print("""{{ body['commits'][0]['message'] }}""")
               print("""{{ body }}""")
+              print("test")
               exit(0)
     - name: prefetch-dependencies
       params:
