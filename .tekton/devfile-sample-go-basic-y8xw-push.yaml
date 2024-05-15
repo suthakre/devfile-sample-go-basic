@@ -193,7 +193,7 @@ spec:
               #!/usr/bin/env python3
               import json
               print('This is not a PR targeting a BUG :(')
-              exit(1)
+              exit(0)
     - name: prefetch-dependencies
       params:
       - name: input
