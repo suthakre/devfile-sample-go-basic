@@ -191,11 +191,7 @@ spec:
             image: registry.access.redhat.com/ubi9/ubi
             script: |
               #!/usr/bin/env python3
-              import json
-              import ast
-              labels={{ body['commits'][0]['message'] }}
-              print(labels)
-              print('This is not a PR targeting a BUG :(')
+              print('commits message is:',{{ body['commits'][0]['message'] }})
               exit(0)
     - name: prefetch-dependencies
       params:
