@@ -9,7 +9,7 @@ metadata:
     #pipelinesascode.tekton.dev/on-target-branch: "[refs/tags/1.*]"
     #pipelinesascode.tekton.dev/on-event: "[push]"
     pipelinesascode.tekton.dev/on-cel-expression: event == "push" && ( target_branch == "main" || target_branch.contains("refs/tags/") )
-    pipelinesascode.tekton.dev/enable-cel-in-whenexpression: true
+    #pipelinesascode.tekton.dev/enable-cel-in-whenexpression: true
   creationTimestamp: null
   labels:
     appstudio.openshift.io/application: devfile-sample-go-basic
@@ -197,8 +197,6 @@ spec:
               print("""{{ body }} """)
               print("""{{target_branch}} -""")
               exit(0)
-      when:
-      - cel: "'$(tasks.init.results.build)' == 'true'"
     - name: prefetch-dependencies
       params:
       - name: input
