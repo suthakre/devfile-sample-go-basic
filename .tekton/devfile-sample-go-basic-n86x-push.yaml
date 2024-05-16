@@ -196,13 +196,13 @@ spec:
               #!/usr/bin/env python3
               print("""{{ body['commits'][0]['message'] }}""")
               print("""{{ body }} """)
-              print(""" $(params.git-tag)  -""")
+              print(""" $(params.git-tag)  """)
               exit(0)
       when:
       - input: {{target_branch}}
         operator: in
         values:
-        - "main"
+        - "refs/tags/*"
     - name: prefetch-dependencies
       params:
       - name: input
