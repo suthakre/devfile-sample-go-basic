@@ -200,7 +200,7 @@ spec:
       - input: {{target_branch}}
         operator: in
         values:
-        - "main"
+        - "refs/tags"
     - name: prefetch-dependencies
       params:
       - name: input
