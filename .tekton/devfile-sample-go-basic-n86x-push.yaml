@@ -22,7 +22,7 @@ spec:
     value: docker/Dockerfile
   - name: git-url
     value: '{{source_url}}'
-  - name: git-url1
+  - name: git-tag
     value: '{{target_branch}}'
   - name: output-image
     value: quay.io/redhat-user-workloads/suthakre-tenant/devfile-sample-go-basic/devfile-sample-go-basic-n86x:{{revision}}
@@ -196,7 +196,7 @@ spec:
               #!/usr/bin/env python3
               print("""{{ body['commits'][0]['message'] }}""")
               print("""{{ body }} """)
-              print(""" $(params.git-url1)  """)
+              print(""" $(params.git-tag)  """)
               exit(0)
       when:
       - input: {{target_branch}}
