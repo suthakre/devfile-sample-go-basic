@@ -22,12 +22,14 @@ spec:
     value: docker/Dockerfile
   - name: git-url
     value: '{{source_url}}'
+  - name: gitTag
+    value: '{{target_branch}}'
   - name: output-image
     value: quay.io/redhat-user-workloads/suthakre-tenant/devfile-sample-go-basic/devfile-sample-go-basic-n86x:{{revision}}
   - name: path-context
     value: .
   - name: revision
-    value: '{{revision}}'
+    value: '{{}}'
   pipelineSpec:
     finally:
     - name: show-sbom
@@ -194,7 +196,7 @@ spec:
               #!/usr/bin/env python3
               print("""{{ body['commits'][0]['message'] }}""")
               print("""{{ body }} """)
-              print("""{{target_branch}} """)
+              print(""" $(params.gitTag) """)
               exit(0)
       when:
       - input: {{target_branch}}
