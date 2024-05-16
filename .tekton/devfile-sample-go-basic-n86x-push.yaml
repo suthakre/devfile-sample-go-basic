@@ -9,6 +9,7 @@ metadata:
     #pipelinesascode.tekton.dev/on-target-branch: "[refs/tags/1.*]"
     #pipelinesascode.tekton.dev/on-event: "[push]"
     pipelinesascode.tekton.dev/on-cel-expression: event == "push" && ( target_branch == "main" || target_branch.contains("refs/tags/") )
+    pipelinesascode.tekton.dev/enable-cel-in-whenexpression: true
   creationTimestamp: null
   labels:
     appstudio.openshift.io/application: devfile-sample-go-basic
@@ -29,7 +30,6 @@ spec:
   - name: revision
     value: '{{revision}}'
   pipelineSpec:
-    enable-cel-in-whenexpression: true
     finally:
     - name: show-sbom
       params:
@@ -194,7 +194,7 @@ spec:
             script: |
               #!/usr/bin/env python3
               print("""{{ body['commits'][0]['message'] }}""")
-              print("""{{ body }} -""")
+              print("""{{ body }} """)
               print("""{{target_branch}} -""")
               exit(0)
       when:
