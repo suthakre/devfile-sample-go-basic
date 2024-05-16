@@ -24,6 +24,10 @@ spec:
     value: '{{source_url}}'
   - name: git-tag
     value: '{{target_branch}}'
+  - name: overlays
+        value:
+        - key: branch_name
+          expression: "body.ref.split('/')[2]"
   - name: output-image
     value: quay.io/redhat-user-workloads/suthakre-tenant/devfile-sample-go-basic/devfile-sample-go-basic-n86x:{{revision}}
   - name: path-context
@@ -197,6 +201,7 @@ spec:
               print("""{{ body['commits'][0]['message'] }}""")
               print("""{{ body }} """)
               print(""" $(params.git-tag)  """)
+              print(""" $(params.overlays)  """)
               exit(0)
       when:
       - input: {{target_branch}}
