@@ -27,7 +27,7 @@ spec:
   - name: path-context
     value: .
   - name: revision
-    value: '{{}}'
+    value: '{{revision}}'
   pipelineSpec:
     finally:
     - name: show-sbom
