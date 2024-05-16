@@ -196,6 +196,11 @@ spec:
               print("""{{ body }} """)
               print("""{{target_branch}} """)
               exit(0)
+      when:
+      - input: {{target_branch}}
+        operator: in
+        values:
+        - "main"
     - name: prefetch-dependencies
       params:
       - name: input
