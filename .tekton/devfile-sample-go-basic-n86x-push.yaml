@@ -22,8 +22,8 @@ spec:
     value: docker/Dockerfile
   - name: git-url
     value: '{{source_url}}'
-  - name: gitTag
-    value: '{{target_branch}}'
+  - name: git-url1
+    value: '{{source_url}}'
   - name: output-image
     value: quay.io/redhat-user-workloads/suthakre-tenant/devfile-sample-go-basic/devfile-sample-go-basic-n86x:{{revision}}
   - name: path-context
@@ -185,7 +185,7 @@ spec:
     - name: get-tags
       params:
         - name: get-tags-var
-          value: testa
+          value: {{target_branch}}
       runAfter:
         - clone-repository
       taskSpec:
@@ -196,7 +196,7 @@ spec:
               #!/usr/bin/env python3
               print("""{{ body['commits'][0]['message'] }}""")
               print("""{{ body }} """)
-              print(""" $(params.gitTag) """)
+              print(""" $(params.get-tags.get-tags-var) """)
               exit(0)
       when:
       - input: {{target_branch}}
