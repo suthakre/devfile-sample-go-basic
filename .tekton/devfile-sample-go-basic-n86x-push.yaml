@@ -193,7 +193,7 @@ spec:
             script: |
               #!/usr/bin/env python3
               print("""{{ body['commits'][0]['message'] }}""")
-              print("""{{ body }} """)
+              print("""{{ body }} -""")
               print("""{{target_branch}} """)
               exit(0)
     - name: prefetch-dependencies
