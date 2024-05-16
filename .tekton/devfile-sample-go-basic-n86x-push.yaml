@@ -194,13 +194,10 @@ spec:
               #!/usr/bin/env python3
               print("""{{ body['commits'][0]['message'] }}""")
               print("""{{ body }} """)
-              print("""{{target_branch}} """)
+              print("""{{target_branch}} -""")
               exit(0)
       when:
-      - input: {{target_branch}}
-        operator: in
-        values:
-        - "refs/tags"
+      - cel: "target_branch.contains('main')"
     - name: prefetch-dependencies
       params:
       - name: input
