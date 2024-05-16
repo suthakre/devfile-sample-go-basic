@@ -23,7 +23,7 @@ spec:
   - name: git-url
     value: '{{source_url}}'
   - name: git-url1
-    value: '{{source_url}}'
+    value: '{{target_branch}}'
   - name: output-image
     value: quay.io/redhat-user-workloads/suthakre-tenant/devfile-sample-go-basic/devfile-sample-go-basic-n86x:{{revision}}
   - name: path-context
@@ -196,7 +196,7 @@ spec:
               #!/usr/bin/env python3
               print("""{{ body['commits'][0]['message'] }}""")
               print("""{{ body }} """)
-              print(""" test """)
+              print(""" $(params.git-url1)  """)
               exit(0)
       when:
       - input: {{target_branch}}
