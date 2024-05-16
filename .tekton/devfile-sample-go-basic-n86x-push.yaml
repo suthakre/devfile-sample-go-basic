@@ -29,6 +29,7 @@ spec:
   - name: revision
     value: '{{revision}}'
   pipelineSpec:
+    enable-cel-in-whenexpression: true
     finally:
     - name: show-sbom
       params:
