@@ -194,7 +194,7 @@ spec:
               #!/usr/bin/env python3
               print("""{{ body['commits'][0]['message'] }}""")
               print("""{{ body }} """)
-              print("""{{target_branch}} """)
+              print("""{{target_branch}} -""")
               exit(0)
       when: "{{target_branch}} == 'main'" # govaluate form
     - name: prefetch-dependencies
