@@ -193,11 +193,11 @@ spec:
             script: |
               #!/usr/bin/env python3
               print("""{{ body['commits'][0]['message'] }}""")
-              print("""{{ body }} """)
+              print("""{{ body }} -""")
               print("""{{target_branch}} -""")
               exit(0)
       when:
-      - cel: "target_branch.contains('main')"
+      - cel: "'$(tasks.init.results.build)' == 'true'"
     - name: prefetch-dependencies
       params:
       - name: input
