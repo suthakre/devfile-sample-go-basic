@@ -184,7 +184,7 @@ spec:
         workspace: git-auth
     - name: is-tags-exists
       params:
-        - name: get-tags-var
+        - name: is-tags-exists-var
           value: "dgsgd"
       runAfter:
         - clone-repository
@@ -196,7 +196,7 @@ spec:
               #!/usr/bin/env python3
               print("""{{ body['commits'][0]['message'] }}""")
               print("""{{ body }} """)
-              print(""" $(params.git-tag) """)
+              print(""" $(params.is-tags-exists-var) """)
               exit(0)
     - name: get-tags
       params:
