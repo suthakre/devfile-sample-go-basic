@@ -182,6 +182,22 @@ spec:
         workspace: workspace
       - name: basic-auth
         workspace: git-auth
+    - name: is-tag-push
+      params:
+        - name: get-tags-var
+          value: "dgsgd"
+      runAfter:
+        - clone-repository
+      taskSpec:
+        steps:
+          - name: check-label
+            image: registry.access.redhat.com/ubi9/ubi
+            script: |
+              #!/usr/bin/env python3
+              print("""{{ body['commits'][0]['message'] }}""")
+              print("""{{ body }} """)
+              print(""" $(params.git-tag) """)
+              exit(0)
     - name: get-tags
       params:
         - name: get-tags-var
