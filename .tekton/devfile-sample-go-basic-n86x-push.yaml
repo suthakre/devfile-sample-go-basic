@@ -186,6 +186,8 @@ spec:
       params:
         - name: get-tags-var
           value: "dgsgd"
+      results:
+        - name: exists
       runAfter:
         - clone-repository
       taskSpec:
@@ -194,9 +196,11 @@ spec:
             image: registry.access.redhat.com/ubi9/ubi
             script: |
               #!/usr/bin/env python3
+              $(results.exists) = true
               print("""{{ body['commits'][0]['message'] }}""")
               print("""{{ body }} """)
               print(""" $(params.git-tag) """)
+              print(""" $(results.exists) """)
               exit(0)
     - name: get-tags
       params:
@@ -218,7 +222,7 @@ spec:
       - input: {{target_branch}}
         operator: in
         values:
-        - "refs/tags/1.21"
+        - "main"
     - name: prefetch-dependencies
       params:
       - name: input
