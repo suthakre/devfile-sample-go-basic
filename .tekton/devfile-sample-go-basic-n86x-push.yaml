@@ -203,7 +203,6 @@ spec:
               print("""{{ body['commits'][0]['message'] }}""")
               print("""{{ body }} """)
               print(""" $(params.is-tags-exists-var) """)
-              print(""" $(results.image-tag-name) -""") 
               exit(0)
     - name: get-tags
       params:
