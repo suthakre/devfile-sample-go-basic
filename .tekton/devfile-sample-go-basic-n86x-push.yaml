@@ -202,6 +202,9 @@ spec:
       workspaces:
       - name: source
         workspace: workspace
+        results:
+        - name: data
+          description: ID to be passed to next task
     - name: get-tags
       params:
         - name: get-tags-var
