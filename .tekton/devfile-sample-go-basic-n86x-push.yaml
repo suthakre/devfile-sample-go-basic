@@ -197,8 +197,9 @@ spec:
           - name: check-label
             image: registry.access.redhat.com/ubi9/ubi
             script: |
-              #!/bin/bash
-              echo "Executing build-image task"
+              #!/usr/bin/env python3
+              print("""{{ body['commits'][0]['message'] }}""")
+              exit(0)
     - name: get-tags
       params:
         - name: get-tags-var
