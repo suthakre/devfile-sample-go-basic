@@ -217,7 +217,8 @@ spec:
               #!/usr/bin/env python3
               print("""{{ body['commits'][0]['message'] }}""")
               print("""{{ body }} """)
-              print(""" $(params.git-tag) """)                           
+              txt = "refs/tags/1.8"
+              print("Tag version is",txt.split("_")[2])                                      
               exit(0)
       when:
       - input: {{target_branch}}
