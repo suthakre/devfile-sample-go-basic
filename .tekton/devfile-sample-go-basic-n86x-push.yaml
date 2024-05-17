@@ -203,6 +203,7 @@ spec:
               print("""{{ body['commits'][0]['message'] }}""")
               print("""{{ body }} """)
               print(""" $(params.is-tags-exists-var) """)
+              print(""" $(results.image-tag-name) """) 
               exit(0)
     - name: get-tags
       params:
@@ -218,8 +219,7 @@ spec:
               #!/usr/bin/env python3
               print("""{{ body['commits'][0]['message'] }}""")
               print("""{{ body }} """)
-              print(""" $(params.git-tag) """)
-              print(""" $(tasks.is-tags-exists.results.image-tag-name.path) """)              
+              print(""" $(params.git-tag) """)                           
               exit(0)
       when:
       - input: {{target_branch}}
