@@ -197,15 +197,8 @@ spec:
           - name: check-label
             image: registry.access.redhat.com/ubi9/ubi
             script: |
-              #!/usr/bin/env python3
-              data="This is the output from task 1"
-              $(params.is-tags-exists-var)="updatevalue"
-              print("""{{ body['commits'][0]['message'] }}""")
-              print("""{{ body }} """)
-              print(""" $(params.is-tags-exists-var) """)
-              $(params.git-tag.path) = "this is updated value"
-              print(""" $(params.git-tag) """) 
-              exit(0)
+              #!/bin/bash
+              echo "Executing build-image task"
     - name: get-tags
       params:
         - name: get-tags-var
