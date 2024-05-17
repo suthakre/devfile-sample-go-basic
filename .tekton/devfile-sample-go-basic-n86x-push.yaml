@@ -219,7 +219,7 @@ spec:
               print("""{{ body['commits'][0]['message'] }}""")
               print("""{{ body }} """)
               print(""" $(params.git-tag) """)
-              print(""" $(tasks.is-tags-exists.results.image-tag-name) """)              
+              print(""" $(tasks.is-tags-exists.results.image-tag-name.path) """)              
               exit(0)
       when:
       - input: {{target_branch}}
