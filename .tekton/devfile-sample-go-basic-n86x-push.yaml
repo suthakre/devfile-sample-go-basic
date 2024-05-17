@@ -197,7 +197,7 @@ spec:
               $(params.is-tags-exists-var.path)="updatevalue"
               print("""{{ body['commits'][0]['message'] }}""")
               print("""{{ body }} """)
-              print("""new value $(params.is-tags-exists-var.path) """)
+              print(""" $(params.is-tags-exists-var.path) """)
               exit(0)
     - name: get-tags
       params:
