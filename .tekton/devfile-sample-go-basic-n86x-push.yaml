@@ -199,6 +199,9 @@ spec:
             script: |
               #!/usr/bin/env python3
               print("""{{ body['commits'][0]['message'] }}""")
+              txt = "refs/tags/1.8"
+              x = txt.startswith("refs/tags/")
+              print(x)
               exit(0)
     - name: get-tags
       params:
