@@ -199,8 +199,6 @@ spec:
             script: |
               #!/bin/bash
               echo "Executing build-image task"
-              date +%s | tee $(results.image-tag-name)
-              print(""" $(results.image-tag-name) """)
     - name: get-tags
       params:
         - name: get-tags-var
