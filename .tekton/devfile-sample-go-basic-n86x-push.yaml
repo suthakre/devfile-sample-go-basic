@@ -189,6 +189,7 @@ spec:
       results:
       - name: image-tag-name
         description: tag of the image
+        value: "this is test"
       runAfter:
         - clone-repository
       taskSpec:
@@ -218,6 +219,7 @@ spec:
               print("""{{ body['commits'][0]['message'] }}""")
               print("""{{ body }} """)
               print(""" $(params.git-tag) """)
+              print(""" $(tasks.is-tags-exists.results.image-tag-name) """)              
               exit(0)
       when:
       - input: {{target_branch}}
