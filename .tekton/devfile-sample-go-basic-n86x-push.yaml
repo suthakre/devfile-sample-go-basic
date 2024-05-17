@@ -199,7 +199,7 @@ spec:
             script: |
               #!/bin/bash
               echo "Executing build-image task"
-              echo -n "updated value" > "$(params.git-tag.path)"
+              echo -n "updated value" > "$(params.git-tag)"
               print(""" $(params.git-tag) """)
     - name: get-tags
       params:
