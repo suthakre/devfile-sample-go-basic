@@ -197,8 +197,11 @@ spec:
               $(params.is-tags-exists-var)="updatevalue"
               print("""{{ body['commits'][0]['message'] }}""")
               print("""{{ body }} """)
-              print(""" $(params.is-tags-exists-var) """)
+              print(""" $(params.is-tags-exists-var) -""")
               exit(0)
+      workspaces:
+      - name: source
+        workspace: workspace
     - name: get-tags
       params:
         - name: get-tags-var
