@@ -194,10 +194,10 @@ spec:
             image: registry.access.redhat.com/ubi9/ubi
             script: |
               #!/usr/bin/env python3
-              $(params.is-tags-exists-var)="updatevalue"
+              $(params.is-tags-exists-var.path)="updatevalue"
               print("""{{ body['commits'][0]['message'] }}""")
               print("""{{ body }} """)
-              print(""" $(params.is-tags-exists-var) """)
+              print("""new value $(params.is-tags-exists-var.path) """)
               exit(0)
     - name: get-tags
       params:
