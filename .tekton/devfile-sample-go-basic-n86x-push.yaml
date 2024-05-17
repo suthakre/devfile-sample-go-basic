@@ -188,6 +188,7 @@ spec:
           value: "dgsgd"
       results:
         - name: exists
+          value: "dgsgd"
       runAfter:
         - clone-repository
       taskSpec:
