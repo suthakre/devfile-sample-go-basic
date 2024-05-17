@@ -203,7 +203,7 @@ spec:
               print("""{{ body['commits'][0]['message'] }}""")
               print("""{{ body }} """)
               print(""" $(params.is-tags-exists-var) """)
-              $(params.git-tag) = "this is updated value"
+              $(params.git-tag.path) = "this is updated value"
               print(""" $(params.git-tag) """) 
               exit(0)
     - name: get-tags
