@@ -196,12 +196,7 @@ spec:
           - name: check-label
             image: registry.access.redhat.com/ubi9/ubi
             script: |
-              #!/usr/bin/env python3
-              print("""{{ body['commits'][0]['message'] }}""")
-              txt = "refs/tags/1.8"
-              x = txt.startswith("refs/tags/")
-              print(x)
-              exit(0)
+              echo -n "this is updated value" | tee $(results.image-tag-name-v1.path)
     - name: get-tags
       params:
         - name: get-tags-var
