@@ -1,0 +1,30 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: build-image
+spec:
+  description: This task is for building image
+  params:
+    - name: image-name
+      description: name of the image which needs to be created
+      default: "sample-image"
+  results:
+    - name: image-tag
+      description: tag of the image
+
+  stepTemplate:
+    env:
+      - name: IMAGE_NAME
+        value: $(params.image-name)
+
+  steps:
+    - name: test-build-image
+      image: redhat/ubi8:latest
+      workingDir: "/root"
+      script: |
+        #!/bin/bash
+        echo "Executing build-image task"
+        echo "Building image with name $IMAGE_NAME"
+        IMAGE_TAG=$(date +%s)
+        echo "Building image with tag $IMAGE_TAG"
+        echo -n "${IMAGE_TAG}" > "$(results.image-tag.path)"
