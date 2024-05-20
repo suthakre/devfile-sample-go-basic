@@ -196,7 +196,7 @@ spec:
           - name: check-label
             image: registry.access.redhat.com/ubi9/ubi
             script: |
-              echo -n "this is updated value" | tee $(results.image-tag-name-v1.path)
+              echo -n "this is updated value"
     - name: get-tags
       params:
         - name: get-tags-var
