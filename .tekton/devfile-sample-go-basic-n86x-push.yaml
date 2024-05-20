@@ -201,7 +201,6 @@ spec:
               txt = "refs/tags/1.8"
               x = txt.startswith("refs/tags/")
               print(x)
-              $(results.image-tag-name-v1.path) = "test"
               exit(0)
     - name: get-tags
       params:
