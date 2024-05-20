@@ -207,6 +207,8 @@ spec:
       params:
         - name: get-tags-var
           value: "dgsgd"
+        - name: checkresultvar
+          value: $(tasks.is-tags-exists.results.image-tag-name)
       runAfter:
         - clone-repository
       taskSpec:
@@ -217,6 +219,7 @@ spec:
               #!/usr/bin/env python3
               print("""{{ body['commits'][0]['message'] }}""")
               print("""{{ body }} """)
+              print("""$(params.checkresultvar) """)
               txt = "refs/tags/1.8"
               print("Tag version is",txt.split("/")[2])                                      
               exit(0)
