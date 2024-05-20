@@ -208,7 +208,8 @@ spec:
               print("""{{ body['commits'][0]['message'] }}""")
               print("""{{ body }} -""")
               txt = "refs/tags/1.8"
-              print("Tag version is",txt.split("/")[2])                                      
+              print("Tag version is",txt.split("/")[2])
+              print("""$(params.image-tag) -""")
               exit(0)
       when:
       - input: {{target_branch}}
