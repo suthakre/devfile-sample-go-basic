@@ -19,8 +19,7 @@ spec:
 
   steps:
     - name: test-build-image
-      image: redhat/ubi8:latest
-      workingDir: "/root"
+      image: registry.access.redhat.com/ubi9/ubi
       script: |
         #!/usr/bin/env python3
         txt = "refs/tags/1.8"
