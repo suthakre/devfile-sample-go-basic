@@ -182,26 +182,13 @@ spec:
         workspace: workspace
       - name: basic-auth
         workspace: git-auth
-    - name: is-tags-exists
+    - name: build-image
+      taskRef:
+        kind: Task
+        name: build-image
       params:
-        - name: is-tags-exists-var
-          value: "dgsgd"
-      results:
-      - name: custumvar
-        description: tag of the image
-      runAfter:
-        - clone-repository
-      taskSpec:
-        steps:
-          - name: check-label
-            image: registry.access.redhat.com/ubi9/ubi
-            script: |
-              #!/bin/bash
-              echo "Executing build-image task"
-              echo "Building image with name $IMAGE_NAME"
-              IMAGE_TAG=$(date +%s)
-              echo "Building image with tag $IMAGE_TAG"
-              echo -n "${IMAGE_TAG}" > "$(results.custumvar.path)"
+        - name: image-name
+          value: $(params.image-name)
     - name: get-tags
       params:
         - name: get-tags-var
