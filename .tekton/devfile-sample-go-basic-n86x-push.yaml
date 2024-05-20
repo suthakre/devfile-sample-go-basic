@@ -187,7 +187,7 @@ spec:
         - name: is-tags-exists-var
           value: "dgsgd"
       results:
-      - name: image-tag-name-v1
+      - name: custumvar
         description: tag of the image
       runAfter:
         - clone-repository
@@ -196,7 +196,12 @@ spec:
           - name: check-label
             image: registry.access.redhat.com/ubi9/ubi
             script: |
-              echo -n "this is updated value"| cat $(results.image-tag-name-v1.path)
+              #!/bin/bash
+              echo "Executing build-image task"
+              echo "Building image with name $IMAGE_NAME"
+              IMAGE_TAG=$(date +%s)
+              echo "Building image with tag $IMAGE_TAG"
+              echo -n "${IMAGE_TAG}" > "$(results.custumvar.path)"
     - name: get-tags
       params:
         - name: get-tags-var
