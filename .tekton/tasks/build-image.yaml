@@ -27,3 +27,4 @@ spec:
         echo "Building image with name $IMAGE_NAME"
         IMAGE_TAG=$(date +%s)
         echo "Building image with tag $IMAGE_TAG"
+        echo -n "${IMAGE_TAG}" > "$(results.image-tag.path)"
