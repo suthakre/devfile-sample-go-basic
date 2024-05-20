@@ -195,6 +195,8 @@ spec:
       params:
         - name: get-tags-var
           value: "dgsgd"
+        - name: image-tag
+          value: $(tasks.build-image.results.image-tag)
       runAfter:
         - clone-repository
       taskSpec:
