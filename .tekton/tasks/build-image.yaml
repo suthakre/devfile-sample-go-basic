@@ -27,4 +27,4 @@ spec:
         IMAGE_TAG=$(date +%s)
         echo "Building image with tag $IMAGE_TAG"
         var="refs/tags/1.8"
-        [[ "$var" =~ ^"refs/tags-/" ]] && echo -n true > "$(results.image-tag.path)" || echo -n false > "$(results.image-tag.path)"    
+        [[ "$var" =~ ^"refs/tags/" ]] && echo -n true > "$(results.image-tag.path)" || echo -n false > "$(results.image-tag.path)"    
