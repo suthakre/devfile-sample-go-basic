@@ -22,9 +22,9 @@ spec:
       image: redhat/ubi8:latest
       workingDir: "/root"
       script: |
-        #!/bin/bash
-        echo "Executing build-image task"
-        echo "Building image with name $IMAGE_NAME"
-        IMAGE_TAG=$(date +%s)
-        echo "Building image with tag $IMAGE_TAG"
-        echo -n "${IMAGE_TAG}" > "$(results.image-tag.path)"
+        #!/usr/bin/env python3
+        txt = "refs/tags/1.8"
+        x = txt.startswith("refs/tags/")
+        print(x)
+        $(results.image-tag.path) = x
+        exit(0)
