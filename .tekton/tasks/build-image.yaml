@@ -25,5 +25,5 @@ spec:
         txt = "refs/tags/1.8"
         x = txt.startswith("refs/tags/")
         print(x)
-        $(results.image-tag.path) = x
+        "$(results.image-tag.path)" = x
         exit(0)
