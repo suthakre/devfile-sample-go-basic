@@ -196,7 +196,6 @@ spec:
               #!/usr/bin/env python3
               print("""{{ body['commits'][0]['message'] }}""")
               print("""{{ body }} """)
-              print("""$(params.checkresultvar) """)
               txt = "refs/tags/1.8"
               print("Tag version is",txt.split("/")[2])                                      
               exit(0)
