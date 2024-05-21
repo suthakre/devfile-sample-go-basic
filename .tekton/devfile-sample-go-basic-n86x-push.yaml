@@ -192,25 +192,14 @@ spec:
       runAfter:
         - clone-repository
     - name: get-tags
+      taskRef:
+        kind: Task
+        name: get-tags
       params:
-        - name: get-tags-var
-          value: "dgsgd"
-        - name: is-commit-tag
-          value: $(tasks.is-commit-tag.results.is-commit-tag)
+        - name: image-name
+          value: $(params.image-name)
       runAfter:
         - is-commit-tag
-      taskSpec:
-        steps:
-          - name: check-label
-            image: registry.access.redhat.com/ubi9/ubi
-            script: |
-              #!/usr/bin/env python3
-              print("""{{ body['commits'][0]['message'] }}""")
-              print("""{{ body }} -""")
-              txt = "refs/tags/1.8"
-              print("Tag version is",txt.split("/")[2])
-              print("""$(params.is-commit-tag) """)
-              exit(0)
       when:
       - input: $(tasks.is-commit-tag.results.is-commit-tag)
         operator: in
