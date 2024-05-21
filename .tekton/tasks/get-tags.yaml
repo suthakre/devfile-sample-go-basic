@@ -3,11 +3,14 @@ kind: Task
 metadata:
   name: get-tags
 spec:
-  description: This task is for building image
+  description: This task is for get commit tags
   params:
     - name: image-name
       description: name of the image which needs to be created
       default: "sample-image"
+  results:
+    - name: commit-tag
+      description: get git commit tag
 
   stepTemplate:
     env:
