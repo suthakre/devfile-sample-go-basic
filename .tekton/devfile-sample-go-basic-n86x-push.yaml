@@ -186,9 +186,6 @@ spec:
       taskRef:
         kind: Task
         name: is-commit-tag
-      params:
-        - name: image-name
-          value: $(params.image-name)
       runAfter:
         - clone-repository
     - name: get-tags
