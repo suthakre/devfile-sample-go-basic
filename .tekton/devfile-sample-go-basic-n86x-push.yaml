@@ -206,7 +206,7 @@ spec:
             script: |
               #!/usr/bin/env python3
               print("""{{ body['commits'][0]['message'] }}""")
-              print("""{{ body }} -""")
+              print("""{{ body }} """)
               txt = "refs/tags/1.8"
               print("Tag version is",txt.split("/")[2])
               print("""$(params.is-commit-tag) """)
