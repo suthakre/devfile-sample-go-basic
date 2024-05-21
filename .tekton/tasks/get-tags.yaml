@@ -12,5 +12,9 @@ spec:
     - name: get-commit-tag
       image: registry.access.redhat.com/ubi9/ubi
       script: |
-        #!/usr/bin/env python3
-        print("""{{ body }} -""")
+        #!/bin/bash
+        echo "Executing get-tags task"
+        IN="refs/tags/1.8"
+        ADDRS=( $(IFS=";" echo "$IN") )
+        echo ${ADDRS[0]}
+        echo ${ADDRS[1]}
