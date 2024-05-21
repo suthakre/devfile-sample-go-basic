@@ -182,10 +182,10 @@ spec:
         workspace: workspace
       - name: basic-auth
         workspace: git-auth
-    - name: build-image
+    - name: is-commit-tag
       taskRef:
         kind: Task
-        name: build-image
+        name: is-commit-tag
       params:
         - name: image-name
           value: $(params.image-name)
@@ -196,7 +196,7 @@ spec:
         - name: get-tags-var
           value: "dgsgd"
         - name: is-commit-tag
-          value: $(tasks.build-image.results.is-commit-tag)
+          value: $(tasks.is-commit-tag.results.is-commit-tag)
       runAfter:
         - clone-repository
       taskSpec:
