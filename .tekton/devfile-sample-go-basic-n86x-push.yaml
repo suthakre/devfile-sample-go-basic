@@ -212,10 +212,10 @@ spec:
               print("""$(params.is-commit-tag) """)
               exit(0)
       when:
-      - input: {{target_branch}}
+      - input: $(params.is-commit-tag)
         operator: in
         values:
-        - "main"
+        - "true"
     - name: prefetch-dependencies
       params:
       - name: input
