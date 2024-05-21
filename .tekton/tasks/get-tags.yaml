@@ -8,9 +8,6 @@ spec:
     - name: image-name
       description: name of the image which needs to be created
       default: "sample-image"
-  results:
-    - name: is-commit-tag
-      description: check git commit is tag
 
   stepTemplate:
     env:
@@ -21,10 +18,5 @@ spec:
     - name: test-build-image
       image: registry.access.redhat.com/ubi9/ubi
       script: |
-        #!/usr/bin/env python3
-        print("""{{ body['commits'][0]['message'] }}""")
-        print("""{{ body }} -""")
-        txt = "refs/tags/1.8"
-        print("Tag version is",txt.split("/")[2])
-        print("""$(params.is-commit-tag) """)
-        exit(0)
+        #!/bin/bash
+        echo "Executing get-tags task"
