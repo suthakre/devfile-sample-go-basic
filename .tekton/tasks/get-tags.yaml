@@ -9,7 +9,7 @@ spec:
       description: get git commit tag
       
   steps:
-    - name: test-build-image
+    - name: get-commit-tag
       image: registry.access.redhat.com/ubi9/ubi
       script: |
         #!/usr/bin/env python3
