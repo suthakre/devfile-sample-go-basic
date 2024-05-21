@@ -16,4 +16,4 @@ spec:
         echo "Executing get-tags task"
         IN="refs/tags/1.8"
         IFS='\/' read -ra TAGS <<< "$IN"
-        echo ${TAGS[2]}
+        echo ${TAGS[2]} > "$(results.commit-tag.path)" 
