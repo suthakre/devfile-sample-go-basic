@@ -195,8 +195,8 @@ spec:
       params:
         - name: get-tags-var
           value: "dgsgd"
-        - name: git-tag-verify
-          value: $(tasks.build-image.results.git-tag-verify)
+        - name: is-commit-tag
+          value: $(tasks.build-image.results.is-commit-tag)
       runAfter:
         - clone-repository
       taskSpec:
@@ -209,7 +209,7 @@ spec:
               print("""{{ body }} -""")
               txt = "refs/tags/1.8"
               print("Tag version is",txt.split("/")[2])
-              print("""$(params.git-tag-verify) """)
+              print("""$(params.is-commit-tag) """)
               exit(0)
       when:
       - input: {{target_branch}}
