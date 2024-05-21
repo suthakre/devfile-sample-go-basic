@@ -16,5 +16,4 @@ spec:
         echo "Executing get-tags task"
         IN="refs/tags/1.8"
         IFS='\/' read -ra TAGS <<< "$IN"
-        echo ${TAGS[1]}
-        for i in "${TAGS[@]}"; do echo "$i"; done
+        echo ${TAGS[2]}
