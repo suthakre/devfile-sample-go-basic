@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1
 kind: Task
 metadata:
-  name: build-image
+  name: is-commit-tag
 spec:
   description: This task is for building image
   params:
