@@ -22,6 +22,6 @@ spec:
       image: registry.access.redhat.com/ubi9/ubi
       script: |
         #!/bin/bash
-        echo "Executing build-image task"
+        echo "Executing is-commit-tag task"
         var="refs/tags/1.8"
         [[ "$var" =~ ^"refs/tags/" ]] && echo -n true > "$(results.is-commit-tag.path)" || echo -n false > "$(results.is-commit-tag.path)"    
