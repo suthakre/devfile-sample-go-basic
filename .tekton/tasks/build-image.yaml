@@ -9,8 +9,8 @@ spec:
       description: name of the image which needs to be created
       default: "sample-image"
   results:
-    - name: git-tag-verify
-      description: tag of the image
+    - name: is-commit-tag
+      description: check git commit is tag
 
   stepTemplate:
     env:
@@ -24,4 +24,4 @@ spec:
         #!/bin/bash
         echo "Executing build-image task"
         var="refs/tags/1.8"
-        [[ "$var" =~ ^"refs/tags/" ]] && echo -n true > "$(results.git-tag-verify.path)" || echo -n false > "$(results.git-tag-verify.path)"    
+        [[ "$var" =~ ^"refs/tags/" ]] && echo -n true > "$(results.is-commit-tag.path)" || echo -n false > "$(results.is-commit-tag.path)"    
