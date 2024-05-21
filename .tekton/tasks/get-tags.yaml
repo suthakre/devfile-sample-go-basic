@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1
 kind: Task
 metadata:
-  name: is-commit-tag
+  name: get-tags
 spec:
   description: This task is for building image
   params:
@@ -21,7 +21,10 @@ spec:
     - name: test-build-image
       image: registry.access.redhat.com/ubi9/ubi
       script: |
-        #!/bin/bash
-        echo "Executing is-commit-tag task"
-        var="refs/tags/1.8"
-        [[ "$var" =~ ^"refs/tags/" ]] && echo -n true > "$(results.is-commit-tag.path)" || echo -n false > "$(results.is-commit-tag.path)"    
+        #!/usr/bin/env python3
+        print("""{{ body['commits'][0]['message'] }}""")
+        print("""{{ body }} -""")
+        txt = "refs/tags/1.8"
+        print("Tag version is",txt.split("/")[2])
+        print("""$(params.is-commit-tag) """)
+        exit(0)
