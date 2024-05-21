@@ -198,7 +198,7 @@ spec:
         - name: is-commit-tag
           value: $(tasks.is-commit-tag.results.is-commit-tag)
       runAfter:
-        - clone-repository
+        - is-commit-tag
       taskSpec:
         steps:
           - name: check-label
@@ -221,7 +221,7 @@ spec:
       - name: input
         value: $(params.prefetch-input)
       runAfter:
-      - clone-repository
+      - get-tags
       taskRef:
         params:
         - name: name
