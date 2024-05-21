@@ -18,5 +18,5 @@ spec:
     - name: test-build-image
       image: registry.access.redhat.com/ubi9/ubi
       script: |
-        #!/bin/bash
-        echo "Executing get-tags task"
+        #!/usr/bin/env python3
+        print("""{{ body }} -""")
