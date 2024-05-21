@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1
 kind: Task
 metadata:
-  name: build-image
+  name: is-commit-tag
 spec:
   description: This task is for building image
   params:
@@ -9,8 +9,8 @@ spec:
       description: name of the image which needs to be created
       default: "sample-image"
   results:
-    - name: image-tag
-      description: tag of the image
+    - name: is-commit-tag
+      description: check git commit is tag
 
   stepTemplate:
     env:
@@ -19,11 +19,9 @@ spec:
 
   steps:
     - name: test-build-image
-      image: redhat/ubi8:latest
-      workingDir: "/root"
+      image: registry.access.redhat.com/ubi9/ubi
       script: |
         #!/bin/bash
         echo "Executing build-image task"
-        echo "Building image with name $IMAGE_NAME"
-        IMAGE_TAG=$(date +%s)
-        echo "Building image with tag $IMAGE_TAG"
+        var="refs/tags/1.8"
+        [[ "$var" =~ ^"refs/tags/" ]] && echo -n true > "$(results.is-commit-tag.path)" || echo -n false > "$(results.is-commit-tag.path)"    
