@@ -15,5 +15,5 @@ spec:
         #!/bin/bash
         echo "Executing get-tags task"
         IN="refs/tags/1.8"
-        IFS='\\' read -ra PATHS <<< "path\\to\\file"
+        IFS='\/' read -ra PATHS <<< "refs/tags/1.8"
         for i in "${PATHS[@]}"; do echo "$i"; done
