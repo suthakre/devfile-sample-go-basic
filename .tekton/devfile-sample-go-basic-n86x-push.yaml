@@ -212,7 +212,7 @@ spec:
               print("""$(params.is-commit-tag) """)
               exit(0)
       when:
-      - input: $(params.is-commit-tag)
+      - input: $(tasks.is-commit-tag.results.is-commit-tag)
         operator: in
         values:
         - "true"
