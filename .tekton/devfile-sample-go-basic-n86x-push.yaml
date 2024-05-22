@@ -246,7 +246,9 @@ spec:
       - name: IMAGE_EXPIRES_AFTER
         value: $(params.image-expires-after)
       - name: COMMIT_SHA
-        value: $(tasks.clone-repository.results.commit)
+        value: $(tasks.clone-repository.results.commit)      
+      - name: BUILD_ARGS
+        value: $(params.build-args)
       - name: BUILD_ARGS_FILE
         value: $(params.build-args-file)
       runAfter:
