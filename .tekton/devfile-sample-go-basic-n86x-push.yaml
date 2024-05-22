@@ -122,7 +122,7 @@ spec:
       name: build-args-file
       type: string
     - name: build-args
-      description: Array of --build-arg values ("arg=value" strings)
+      description: Array of --build-arg values ("arg=value" strings )
       type: array
       default: ["EMAIL=suthakre@redhat.com"]
     results:
