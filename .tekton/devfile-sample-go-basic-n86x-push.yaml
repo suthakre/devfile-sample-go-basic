@@ -249,8 +249,6 @@ spec:
         value: $(tasks.clone-repository.results.commit)      
       - name: BUILD_ARGS
         value: $(params.build-args)
-      - name: BUILD_ARGS_FILE
-        value: $(params.build-args-file)
       runAfter:
       - prefetch-dependencies
       taskRef:
