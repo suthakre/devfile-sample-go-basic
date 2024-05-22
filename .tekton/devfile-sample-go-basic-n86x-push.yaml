@@ -121,7 +121,7 @@ spec:
       name: build-args
       type: array
     - default: ""
-      description: Path to a file with build arguments which will be passed to podman-
+      description: Path to a file with build arguments which will be passed to podman
         during build
       name: build-args-file
       type: string    
