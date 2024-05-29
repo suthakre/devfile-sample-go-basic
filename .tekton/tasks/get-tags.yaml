@@ -17,4 +17,4 @@ spec:
         IN="refs/tags/1.8"
         IFS='\/' read -ra TAGS <<< "$IN"
         echo ${TAGS[2]} > "$(results.commit-tag.path)"
-        echo $(params.output-image)
+        echo $(params.output-image-test)
