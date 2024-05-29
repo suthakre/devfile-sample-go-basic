@@ -191,7 +191,7 @@ spec:
       - name: input
         value: $(params.prefetch-input)
       runAfter:
-      - get-tags
+      - clone-repository
       taskRef:
         params:
         - name: name
