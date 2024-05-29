@@ -185,27 +185,7 @@ spec:
       - name: output
         workspace: workspace
       - name: basic-auth
-        workspace: git-auth
-    - name: is-commit-tag
-      taskRef:
-        kind: Task
-        name: is-commit-tag
-      runAfter:
-        - clone-repository
-    - name: get-tags
-      taskRef:
-        kind: Task
-        name: get-tags
-      params:
-        - name: image-name
-          value: $(params.image-name)
-      runAfter:
-        - is-commit-tag
-      when:
-      - input: $(tasks.is-commit-tag.results.is-commit-tag)
-        operator: in
-        values:
-        - "true"
+        workspace: git-auth    
     - name: prefetch-dependencies
       params:
       - name: input
