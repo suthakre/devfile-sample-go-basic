@@ -25,4 +25,4 @@ spec:
         echo "Executing is-commit-tag task"
         var="refs/tags/1.8"
         [[ "$var" =~ ^"refs/tags/" ]] && echo -n true > "$(results.is-commit-tag.path)" || echo -n false > "$(results.is-commit-tag.path)"
-        echo "Update image name" > "$(params.output-image-test.path)"
+        echo "$(params.output-image-test.path)"
