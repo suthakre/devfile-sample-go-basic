@@ -26,6 +26,8 @@ spec:
     value: '{{target_branch}}'
   - name: output-image
     value: quay.io/redhat-user-workloads/suthakre-tenant/devfile-sample-go-basic/devfile-sample-go-basic-n86x:{{revision}}
+  - name: output-image-test
+    value: newimagename
   - name: path-context
     value: .
   - name: revision
