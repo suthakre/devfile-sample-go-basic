@@ -80,7 +80,7 @@ spec:
       type: string
     - default: .
       description: Path to the source code of an application's component from where
-        to build image
+        to build image.
       name: path-context
       type: string
     - default: Dockerfile
