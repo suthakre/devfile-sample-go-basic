@@ -17,3 +17,4 @@ spec:
         IN="refs/tags/1.8"
         IFS='\/' read -ra TAGS <<< "$IN"
         echo ${TAGS[2]} > "$(results.commit-tag.path)" 
+        echo "$(tasks.is-commit-tag.results.is-commit-tag)" 
