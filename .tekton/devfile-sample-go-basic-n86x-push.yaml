@@ -116,10 +116,6 @@ spec:
       description: Build a source image.
       name: build-source-image
       type: string
-    - default: []
-      description: Array of --build-arg values ("arg=value" strings )
-      name: build-args
-      type: array
     - default: ""
       description: Path to a file with build arguments which will be passed to podman
         during build
@@ -226,9 +222,7 @@ spec:
       - name: IMAGE_EXPIRES_AFTER
         value: $(params.image-expires-after)
       - name: COMMIT_SHA
-        value: $(tasks.clone-repository.results.commit)      
-      - name: BUILD_ARGS
-        value: $(params.build-args)
+        value: $(tasks.clone-repository.results.commit)  
       runAfter:
       - prefetch-dependencies
       taskRef:
