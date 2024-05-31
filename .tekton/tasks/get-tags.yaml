@@ -5,7 +5,7 @@ metadata:
 spec:
   description: This task is for get commit tags
   results:
-    - name: commit-tag
+    - name: new-image-tag
       description: get git commit tag
       
   steps:
