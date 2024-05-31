@@ -208,6 +208,9 @@ spec:
       taskRef:
         kind: Task
         name: get-image-q-name
+      params:
+        - name: commit-short-sha
+          value: $(tasks.is-commit-tag.results.commit-short-sha)
       runAfter:
         - get-tags
     - name: prefetch-dependencies
