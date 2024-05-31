@@ -212,7 +212,7 @@ spec:
         - name: commit-short-sha
           value: $(tasks.is-commit-tag.results.commit-short-sha)
         - name: commit-tag
-          value: $(tasks.get-tags.results.commit-tag)abc
+          value: $(tasks.get-tags.results.commit-tag)
       runAfter:
         - get-tags
     - name: prefetch-dependencies
