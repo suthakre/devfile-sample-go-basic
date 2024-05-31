@@ -14,6 +14,13 @@ spec:
       script: |
         #!/bin/bash
         echo "Executing get-tags task"
-        IN="refs/tags/1.8"
-        IFS='\/' read -ra TAGS <<< "$IN"
-        echo "_"${TAGS[2]} > "$(results.commit-tag.path)"
+        var="refs/tags/1.8"
+        commitShortSha=$(echo $(params.revision) | head -c8)
+        commitTag=""
+        if [[ "$var" =~ ^"refs/tags/" ]]
+            then
+                IFS='\/' read -ra TAGS <<< "$var"
+                commitTag="_"${TAGS[2]}
+        fi
+        newImageTag="${commitShortSha}${commitTag}"
+        echo $newImageTag
