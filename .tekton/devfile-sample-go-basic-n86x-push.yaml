@@ -27,7 +27,7 @@ spec:
   - name: output-image
     value: quay.io/redhat-user-workloads/suthakre-tenant/devfile-sample-go-basic/devfile-sample-go-basic-n86x:{{revision}}
   - name: output-image-test
-    value: quay.io/redhat-user-workloads/suthakre-tenant/devfile-sample-go-basic/devfile-sample-go-basic-n86x:$(tasks.get-tags.results.new-image-tag)
+    value: quay.io/redhat-user-workloads/suthakre-tenant/devfile-sample-go-basic/devfile-sample-go-basic-n86x:${tasks.get-tags.results.new-image-tag}
   - name: path-context
     value: .
   - name: revision
