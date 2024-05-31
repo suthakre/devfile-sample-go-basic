@@ -23,4 +23,4 @@ spec:
                 commitTag="_"${TAGS[2]}
         fi
         newImageTag="${commitShortSha}${commitTag}"
-        echo $newImageTag
+        echo $newImageTag > "$(results.new-image-tag.path)"
