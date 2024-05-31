@@ -18,3 +18,4 @@ spec:
         IFS='\/' read -ra TAGS <<< "$IN"
         echo ${TAGS[2]} > "$(results.commit-tag.path)"
         echo $(params.image-name)
+        echo $(params.image-name-tag)
