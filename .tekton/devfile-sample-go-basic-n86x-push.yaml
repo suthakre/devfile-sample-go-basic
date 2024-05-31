@@ -203,7 +203,7 @@ spec:
       - input: $(tasks.is-commit-tag.results.is-commit-tag)
         operator: in
         values:
-        - "true"
+        - "false"
     - name: get-image-q-name
       taskRef:
         kind: Task
