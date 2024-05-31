@@ -196,7 +196,9 @@ spec:
         name: get-tags
       params:
         - name: image-name
-          value: $(tasks.is-commit-tag.results.commit-short-sha) "abc"
+          value: $(tasks.is-commit-tag.results.commit-short-sha)
+        - name: image-name-tag
+          value: $(results.commit-tag)
       runAfter:
         - is-commit-tag
       when:
