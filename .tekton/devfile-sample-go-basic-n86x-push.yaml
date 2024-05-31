@@ -204,6 +204,12 @@ spec:
         operator: in
         values:
         - "true"
+    - name: get-image-q-name
+      taskRef:
+        kind: Task
+        name: get-image-q-name
+      runAfter:
+        - get-tags
     - name: prefetch-dependencies
       params:
       - name: input
