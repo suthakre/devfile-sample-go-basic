@@ -37,13 +37,4 @@ spec:
         echo "Find short tag"
         var2=$(echo $(params.revision) | head -c8)
         echo $var2
-        var="refs/tags/1.8"
-        commitShortSha=$(echo $(params.revision) | head -c8)
-        commitTag=""
-        if [[ "$var" =~ ^"refs/tags/" ]]
-            then
-                IFS='\/' read -ra TAGS <<< "$var"
-                commitTag="_"${TAGS[2]}
-        fi
-        newImageTag="${commitShortSha}${commitTag}"
-        echo $newImageTag
+        
