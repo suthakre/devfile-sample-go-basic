@@ -29,4 +29,4 @@ spec:
         [[ "$var" =~ ^"refs/tags/" ]] && echo -n true > "$(results.is-commit-tag.path)" || echo -n false > "$(results.is-commit-tag.path)"
         echo "$(params.revision)" | head -c8 > "$(results.commit-short-sha.path)"
         echo "Find short tag"
-        echo "$(results.commit-short-sha.path)"
+        echo "$(results.commit-short-sha)"
