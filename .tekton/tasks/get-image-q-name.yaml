@@ -11,6 +11,4 @@ spec:
       script: |
         #!/bin/bash
         echo "get-image-q-name"
-        echo "$(params.commit-short-sha)"
-        echo "$(params.commit-tag)"
         echo "$(params.new-image-tag)"
