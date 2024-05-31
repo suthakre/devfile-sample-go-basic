@@ -205,7 +205,7 @@ spec:
         name: get-image-q-name
       params:
         - name: new-image-tag
-          value: $(params.output-image-test)
+          value: $(tasks.get-tags.results.new-image-tag)
       runAfter:
         - prefetch-dependencies
     - name: prefetch-dependencies
