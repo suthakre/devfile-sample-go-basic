@@ -209,14 +209,10 @@ spec:
         kind: Task
         name: get-image-q-name
       params:
-        - name: commit-short-sha
-          value: $(tasks.is-commit-tag.results.commit-short-sha)
-        - name: commit-tag
-          value: $(tasks.get-tags.results.commit-tag)
         - name: new-image-tag
           value: $(tasks.is-commit-tag.results.commit-short-sha)$(tasks.get-tags.results.commit-tag)
       runAfter:
-        - build-container
+        - prefetch-dependencies
     - name: prefetch-dependencies
       params:
       - name: input
