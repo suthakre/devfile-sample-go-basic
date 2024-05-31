@@ -203,14 +203,14 @@ spec:
       - input: $(tasks.is-commit-tag.results.is-commit-tag)
         operator: in
         values:
-        - "false"
+        - "true"
     - name: get-image-q-name
       taskRef:
         kind: Task
         name: get-image-q-name
       params:
         - name: new-image-tag
-          value: $(tasks.is-commit-tag.results.commit-short-sha)
+          value: $(tasks.is-commit-tag.results.commit-short-sha)$(tasks.get-tags.results.commit-tag)
       runAfter:
         - prefetch-dependencies
     - name: prefetch-dependencies
