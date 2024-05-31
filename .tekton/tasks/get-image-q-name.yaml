@@ -1,0 +1,13 @@
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: get-image-q-name
+spec:
+  description: This task is for get commit tags
+      
+  steps:
+    - name: get-image-q-name
+      image: registry.access.redhat.com/ubi9/ubi
+      script: |
+        #!/bin/bash
+        echo "get-image-q-name"
