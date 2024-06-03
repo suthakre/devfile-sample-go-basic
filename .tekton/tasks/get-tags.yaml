@@ -6,8 +6,8 @@ spec:
   description: This task is for get commit tags
   results:
     - name: image-tag
-      description: get git commit tag
-    - name: new-image-tag
+      description: get image tag as combination of git commit tag and short SHA
+    - name: git-tag
       description: get git commit tag
       
   steps:
@@ -25,6 +25,7 @@ spec:
             then
                 IFS='\/' read -ra TAGS <<< "$var"
                 commitTag=${TAGS[2]}"_"
+                echo ${TAGS[2]} > "$(results.git-tag.path)"
         fi
         imageTag="${commitTag}${commitShortSha}"
         echo $imageTag > "$(results.image-tag.path)"
