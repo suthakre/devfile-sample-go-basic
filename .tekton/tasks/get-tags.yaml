@@ -24,7 +24,7 @@ spec:
         if [[ "$var" =~ ^"refs/tags/" ]]
             then
                 IFS='\/' read -ra TAGS <<< "$var"
-                commitTag="_"${TAGS[2]}
+                commitTag=${TAGS[2]}"_"
         fi
-        imageTag="${commitShortSha}${commitTag}"
+        imageTag="${commitTag}${commitShortSha}"
         echo $imageTag > "$(results.image-tag.path)"
