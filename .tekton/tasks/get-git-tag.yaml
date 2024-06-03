@@ -25,7 +25,8 @@ spec:
             then
                 IFS='\/' read -ra TAGS <<< "$gitTag"
                 commitTag=${TAGS[2]}"_"
-                echo ${TAGS[2]} > "$(results.git-tag.path)"
+                
         fi
+        echo $commitTag > "$(results.git-tag.path)"
         imageTag="${commitTag}${commitShortSha}"
         echo $imageTag > "$(results.image-tag.path)"
