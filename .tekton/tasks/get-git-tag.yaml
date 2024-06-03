@@ -18,7 +18,7 @@ spec:
         echo "Executing get-tags task"
         gitTag=$(echo $(params.git-refs-tag))
         echo $gitTag
-        gitTag="refs/tags/1.8"
+        #gitTag="refs/tags/1.8"
         commitShortSha=$(echo $(params.revision) | head -c8)
         commitTag=""
         if [[ "$gitTag" =~ ^"refs/tags/" ]]
