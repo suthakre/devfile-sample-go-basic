@@ -27,6 +27,6 @@ spec:
                 commitTag=${TAGS[2]}"_"
                 
         fi
-        $(echo $commitTag | tr -d _ ) > "$(results.git-tag.path)"
+        echo $commitTag | tr -d _ > "$(results.git-tag.path)"
         imageTag="${commitTag}${commitShortSha}"
         echo $imageTag > "$(results.image-tag.path)"
