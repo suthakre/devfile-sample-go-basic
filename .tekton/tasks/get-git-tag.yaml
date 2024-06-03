@@ -16,7 +16,7 @@ spec:
       script: |
         #!/bin/bash
         echo "Executing get-tags task"
-        gitTag=$(echo $(params.git-tag))
+        gitTag=$(echo $(params.git-refs-tag))
         echo $gitTag
         var="refs/tags/1.8"
         commitShortSha=$(echo $(params.revision) | head -c8)
