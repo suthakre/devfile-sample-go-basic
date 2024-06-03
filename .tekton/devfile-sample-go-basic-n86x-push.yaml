@@ -188,10 +188,10 @@ spec:
         name: is-commit-tag
       runAfter:
         - clone-repository
-    - name: get-tags
+    - name: get-git-tag
       taskRef:
         kind: Task
-        name: get-tags
+        name: get-git-tag
       runAfter:
         - is-commit-tag
       when:
@@ -205,9 +205,9 @@ spec:
         name: get-image-q-name
       params:
         - name: new-image-tag
-          value: quay.io/redhat-user-workloads/suthakre-tenant/devfile-sample-go-basic/devfile-sample-go-basic-n86x:$(tasks.get-tags.results.image-tag)
+          value: quay.io/redhat-user-workloads/suthakre-tenant/devfile-sample-go-basic/devfile-sample-go-basic-n86x:$(tasks.get-git-tag.results.image-tag)
         - name: new-git-tag
-          value: $(tasks.get-tags.results.git-tag)
+          value: $(tasks.get-git-tag.results.git-tag)
       runAfter:
         - prefetch-dependencies
     - name: prefetch-dependencies
@@ -215,7 +215,7 @@ spec:
       - name: input
         value: $(params.prefetch-input)
       runAfter:
-      - get-tags
+      - get-git-tag
       taskRef:
         params:
         - name: name
