@@ -206,6 +206,8 @@ spec:
       params:
         - name: new-image-tag
           value: quay.io/redhat-user-workloads/suthakre-tenant/devfile-sample-go-basic/devfile-sample-go-basic-n86x:$(tasks.get-tags.results.image-tag)
+        - name: new-git-tag
+          value: $(tasks.get-tags.results.git-tag)
       runAfter:
         - prefetch-dependencies
     - name: prefetch-dependencies
