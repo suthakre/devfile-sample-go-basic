@@ -18,7 +18,7 @@ spec:
         echo "Executing get-tags task"
         gitTag=$(echo $(params.git-refs-tag))
         echo $gitTag
-        #var="refs/tags/1.8"
+        gitTag="refs/tags/1.8"
         commitShortSha=$(echo $(params.revision) | head -c8)
         commitTag=""
         if [[ "$gitTag" =~ ^"refs/tags/" ]]
@@ -27,6 +27,6 @@ spec:
                 commitTag=${TAGS[2]}"_"
                 
         fi
-        echo $commitTag > "$(results.git-tag.path)"
+        $(echo $commitTag | tr _ '') > "$(results.git-tag.path)"
         imageTag="${commitTag}${commitShortSha}"
         echo $imageTag > "$(results.image-tag.path)"
