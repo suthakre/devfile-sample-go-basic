@@ -6,10 +6,10 @@ spec:
   description: This task is for get commit tags
   results:
     - name: image-tag
-      description: get image tag as combination of git commit tag and short SHA.
+      description: get image tag as combination of git commit tag and short SHA
     - name: git-tag
       description: get git commit tag
-      
+
   steps:
     - name: get-tags
       image: registry.access.redhat.com/ubi9/ubi
@@ -25,7 +25,7 @@ spec:
             then
                 IFS='\/' read -ra TAGS <<< "$gitTag"
                 commitTag=${TAGS[2]}"_"
-                
+
         fi
         echo $commitTag | tr -d _ > "$(results.git-tag.path)"
         imageTag="${commitTag}${commitShortSha}"
