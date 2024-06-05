@@ -6,7 +6,7 @@ spec:
   description: This task is for get commit tags
   results:
     - name: image-tag
-      description: get image tag as combination of git commit tag and short SHA
+      description: get image tag as combination of git commit tag and short SHA.
     - name: git-tag
       description: get git commit tag
 
