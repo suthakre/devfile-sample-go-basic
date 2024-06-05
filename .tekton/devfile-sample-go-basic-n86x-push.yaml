@@ -24,6 +24,8 @@ spec:
     value: '{{source_url}}'
   - name: git-refs-tag
     value: '{{target_branch}}'
+  - name: git-body
+    value: '{{body}}'
   - name: output-image
     value: quay.io/redhat-user-workloads/suthakre-tenant/devfile-sample-go-basic/devfile-sample-go-basic-n86x:{{revision}}
   - name: path-context
